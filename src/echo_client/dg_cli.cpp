@@ -139,7 +139,7 @@ wait_for_reply (socket_t sock, std::string buf,
 dg_cli (int sock, const struct ::sockaddr *server_addr, ::socklen_t addr_len)
 {
   struct timeval tv;
-  tv.tv_sec = 5; // Time out: 5 seconds
+  tv.tv_sec = 2; // Time out: 5 seconds
   tv.tv_usec = 0;
   ::Setsockopt (sock, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof (tv));
   try
