@@ -11,7 +11,7 @@ AC_PROG_RANLIB
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 AX_CXX_COMPILE_STDCXX(11, [noext], [mandatory])
-AX_APPEND_COMPILE_FLAGS([-Wall -Wpedantic -Wextra -Werror], [CXXFLAGS])
+AX_APPEND_COMPILE_FLAGS([-Wall -Wpedantic -Wextra -Werror -O2], [CXXFLAGS])
 AX_APPEND_COMPILE_FLAGS([-Isrc], [CXXFLAGS])
 
 # Checks for programs.
