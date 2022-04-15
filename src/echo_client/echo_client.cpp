@@ -39,7 +39,7 @@ main (int argc, char *argv[])
         }
     }
 
-  std::printf ("Try to connect to server: %s:%d\n", host, (int)port);
+  std::printf ("Try to send to server: %s:%d\n", host, (int)port);
 
   struct ::sockaddr_in server_addr;
   ::zeromemobj (server_addr);
