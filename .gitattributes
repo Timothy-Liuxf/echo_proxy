@@ -1,0 +1,45 @@
+###############################################################################
+# Set default behavior to automatically normalize line endings.
+###############################################################################
+* text=auto
+
+###############################################################################
+# behavior for image files
+# image files are treated as binary by default.
+###############################################################################
+*.jpg   binary
+*.png   binary
+*.gif   binary
+*.bmp   binary
+*.ico   binary
+*.svg   binary
+*.psd   binary
+*.jpeg  binary
+*.jfif  binary
+
+###############################################################################
+# diff behavior for common document formats
+# Convert binary document formats to text before diffing them.
+###############################################################################
+*.doc   diff=astextplain
+*.DOC   diff=astextplain
+*.docx  diff=astextplain
+*.DOCX  diff=astextplain
+*.dot   diff=astextplain
+*.DOT   diff=astextplain
+*.pdf   diff=astextplain
+*.PDF   diff=astextplain
+*.rtf   diff=astextplain
+*.RTF   diff=astextplain
+
+###############################################################################
+# Force bash scripts to always use lf line endings so that if a repo is accessed
+# in Unix via a file share from Windows, the scripts will work.
+###############################################################################
+*.sh text eol=lf
+
+###############################################################################
+# m4 file by gnu.org
+###############################################################################
+
+m4/** linguist-vendored
