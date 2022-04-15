@@ -1,6 +1,9 @@
 #include "dg_echo.h"
 #include <common/common.h>
 #include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <ctime>
 #include <signal.h>
 #include <string>
 // #include <sys/wait.h>
@@ -17,7 +20,7 @@
 int
 main (int argc, char *argv[])
 {
-
+  bool randomlyDrop = false;
   unsigned short port = DEFAULT_PORT;
 
   if (argc > 1)
@@ -42,6 +45,12 @@ main (int argc, char *argv[])
           std::printf ("Port specified invalid! Use default: %d\n",
                        (int)DEFAULT_PORT);
         }
+      if (argc > 2 && ::std::strcmp (argv[2], "Drop") == 0)
+        {
+          randomlyDrop = true;
+          ::srand ((unsigned)std::time (nullptr));
+          std::printf ("[Info] Server will randomly drop packets!\n");
+        }
     }
 
   std::printf ("Try to listen at port: %d\n", (int)port);
@@ -61,6 +70,7 @@ main (int argc, char *argv[])
   newsig.sa_handler = SIG_IGN;
   ::sigaction (SIGPIPE, &newsig, 0);
 
-  ::dg_echo (sock, (struct ::sockaddr *)&client_addr, sizeof (client_addr));
+  ::dg_echo (sock, (struct ::sockaddr *)&client_addr, sizeof (client_addr),
+             randomlyDrop);
   return 0;
 }

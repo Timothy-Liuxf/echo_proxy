@@ -1,10 +1,12 @@
 #include "dg_echo.h"
+#include <cstdio>
 #include <cstdlib>
 
 char server_buffer[MAX_BUFF_SIZE];
 
 [[noreturn]] void
-dg_echo (socket_t sock, struct ::sockaddr *client_addr, socklen_t addr_len)
+dg_echo (socket_t sock, struct ::sockaddr *client_addr, socklen_t addr_len,
+         bool randomlydrop)
 {
   while (true)
     {
@@ -39,6 +41,15 @@ dg_echo (socket_t sock, struct ::sockaddr *client_addr, socklen_t addr_len)
         {
         case 1u:
           {
+            if (randomlydrop)
+              {
+                if (std::rand () % 3 == 0)
+                  {
+                    std::printf ("Drop: %.*s\n", n - MIN_LEN,
+                                 server_buffer + MIN_LEN);
+                    break;
+                  }
+              }
             *(uint32_t *)((char *)server_buffer) = BOM;
             *(uint32_t *)((char *)server_buffer + BOM_LEN)
                 = 1u; // Use Version 1 protocol

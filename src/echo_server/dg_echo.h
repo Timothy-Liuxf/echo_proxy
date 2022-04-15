@@ -4,6 +4,6 @@
 #include <common/common.h>
 
 [[noreturn]] void dg_echo (socket_t sock, struct ::sockaddr *client_addr,
-                           socklen_t addr_len);
+                           socklen_t addr_len, bool randomlydrop = false);
 
 #endif // !DG_ECHO_H_

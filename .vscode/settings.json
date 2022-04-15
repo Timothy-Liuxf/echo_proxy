@@ -63,6 +63,7 @@
         "stack": "cpp",
         "thread": "cpp",
         "sstream": "cpp",
-        "numbers": "cpp"
+        "numbers": "cpp",
+        "iostream": "cpp"
     }
 }

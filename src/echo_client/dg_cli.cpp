@@ -107,7 +107,6 @@ wait_for_reply (socket_t sock, std::string buf,
                                     (int)ask.size () - MIN_LEN,
                                     ask.c_str () + MIN_LEN, (int)ret - MIN_LEN,
                                     client_buf + MIN_LEN);
-                            return;
                           }
                         if (recv_seq_num == seq_num)
                           {
