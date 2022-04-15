@@ -165,7 +165,7 @@ dg_cli (int sock, const struct ::sockaddr *server_addr, ::socklen_t addr_len)
                 }
               try
                 {
-                  std::thread ([=, &tmp_buf] {
+                  std::thread ([=] {
                     wait_for_reply (sock, std::move (tmp_buf), server_addr,
                                     addr_len);
                   }).detach ();
