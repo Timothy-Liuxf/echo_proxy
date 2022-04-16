@@ -45,6 +45,8 @@ m4/lt~obsolete.m4
 # Autotools dependency files
 .deps/
 
+.dirstamp
+
 # Generated Makefile 
 # (meta build system like autotools, 
 # can automatically generate from config.status script
